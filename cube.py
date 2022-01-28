@@ -27,9 +27,6 @@ class RubiksCube(Ursina):
         camera.rotation_x = 30
         camera.rotation_y = -30
 
-    def rotation_trigger(self):
-        self.action_trigger = not self.action_trigger
-
     def create_cube(self):
         texture_number = 1
 
@@ -41,6 +38,9 @@ class RubiksCube(Ursina):
                                             position=(x, y, z),
                                             scale=0.48))
                     texture_number += 1
+
+    def rotation_trigger(self):
+        self.action_trigger = not self.action_trigger
 
     def side_for_rotation(self, axis, shift, is_rotate_all_cube=False):
         for c in self.cube:
